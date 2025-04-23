@@ -6,50 +6,34 @@
   <script type="text/javascript">
     (function(e,t,n){
       if(e.snaptr) return;
-      var a=e.snaptr=function(){
+      var a = e.snaptr = function(){
         a.handleRequest
-          ? a.handleRequest.apply(a,arguments)
-          : a.queue.push(arguments)
+          ? a.handleRequest.apply(a, arguments)
+          : a.queue.push(arguments);
       };
       a.queue = [];
-      var s='script',
-          r=t.createElement(s);
-      r.async = !0;
+      var s = 'script',
+          r = t.createElement(s);
+      r.async = true;
       r.src = n;
-      var u=t.getElementsByTagName(s)[0];
-      u.parentNode.insertBefore(r,u);
+      var u = t.getElementsByTagName(s)[0];
+      u.parentNode.insertBefore(r, u);
     })(window, document, 'https://sc-static.net/scevent.min.js');
 
-    // Initialize Pixel
+    // Initialize your Snapchat Pixel
     snaptr('init', 'fa02239a-ed56-4a26-828c-4089ccec30ef');
 
-    // Fire standard events
+    // Fire events
     snaptr('track', 'PAGE_VIEW');
     snaptr('track', 'VIEW_CONTENT', {
       content_id: 'bridge-page',
       content_type: 'redirect'
     });
-
-    // Fire full SIGN_UP event
     snaptr('track', 'SIGN_UP', {
-      sign_up_method: 'INSERT_SIGN_UP_METHOD',
-      uuid_c1: 'INSERT_UUID_C1',
-      currency: 'INSERT_CURRENCY',
-      success: INSERT_1_OR_0,
-      user_email: 'INSERT_USER_EMAIL',
-      user_phone_number: 'INSERT_USER_PHONE_NUMBER',
-      user_hashed_email: 'INSERT_USER_HASHED_EMAIL',
-      user_hashed_phone_number: 'INSERT_USER_HASHED_PHONE_NUMBER',
-      firstname: 'INSERT_FIRST_NAME',
-      lastname: 'INSERT_LAST_NAME',
-      age: 'INSERT_AGE',
-      geo_city: 'INSERT_GEO_CITY',
-      geo_country: 'INSERT_GEO_COUNTRY',
-      geo_postal_code: 'INSERT_GEO_POSTAL_CODE',
-      geo_region: 'INSERT_GEO_REGION'
+      method: 'redirect'
     });
 
-    // Delay redirect for 2 seconds to ensure all events fire
+    // Delay redirect for 2 seconds to ensure events fire
     setTimeout(function() {
       window.location.href =
         "https://track.autoaltercations.site/67e2cfe82356cf84f721c324"
@@ -60,7 +44,7 @@
         + "&sub5={{creative.name}}"
         + "&sub6={{ad.id}}"
         + "&sub7={{creative.headline}}";
-    }, 2000); // 2000ms = 2 seconds
+    }, 2000);
   </script>
 </head>
 <body>
